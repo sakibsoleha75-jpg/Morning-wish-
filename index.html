@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning Soleha ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,
+    #ffb6c9, #ffe0e9, #ffc4d6);
+  color: #8e3158;
+}
+
+.card {
+  width: 90%;
+  max-width: 390px;
+  padding: 35px 22px;
+  text-align: center;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.65);
+  border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 15px 45px #d76b9140;
+  backdrop-filter: blur(12px);
+  animation: appear 1.5s ease;
+  z-index: 2;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.sun {
+  font-size: 65px;
+  animation: sun 3s infinite ease-in-out;
+}
+
+@keyframes sun {
+  50% { transform: translateY(-12px) rotate(10deg); }
+}
+
+h1 {
+  font-size: 29px;
+  margin: 15px 0;
+  color: #d63375;
+}
+
+.name {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ed4c88;
+  text-shadow: 0 3px 12px #ff8ab766;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  to { text-shadow: 0 0 20px #ff4f91; }
+}
+
+.message {
+  margin: 18px 0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.love {
+  font-size: 34px;
+  margin: 12px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.3); }
+}
+
+button {
+  background: linear-gradient(45deg,#ff4f91,#ff86aa);
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px #ff4f9160;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:active {
+  transform: scale(.92);
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #ad5277;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+#surprise {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #fff0f5;
+  animation: appear .7s;
+  line-height: 1.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="sun">🌅</div>
+
+  <h1>Good Morning</h1>
+
+  <div class="name">Soleha ❤️</div>
+
+  <div class="message">
+    Every morning is beautiful,<br>
+    but my mornings are incomplete<br>
+    without thinking of you. 🥺
+  </div>
+
+  <div class="love">💗</div>
+
+  <h2 style="color:#e84380">
+    I Miss You So Much ❤️
+  </h2>
+
+  <p class="message">
+    তোমার হাসিটা অনেক মিস করি।<br>
+    দূরে থাকলেও তুমি সবসময়<br>
+    আমার মনের কাছেই আছো। 🌸
+  </p>
+
+  <button onclick="showLove()">
+    Tap For A Surprise 💌
+  </button>
+
+  <div id="surprise">
+    Hey Soleha! 🥰<br>
+    তুমি আমার প্রতিদিনের<br>
+    সবচেয়ে সুন্দর ভাবনা।<br>
+    Take Care & Stay Happy! ❤️<br>
+    Love You! 💋
+  </div>
+
+  <div class="footer">
+    Made With Endless Love ❤️<br>
+    Just For You, Soleha 🌷
+  </div>
+
+</div>
+
+<script>
+
+// Floating hearts
+const emojis = ["❤️","💗","💕","💖","🌸","🦋"];
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML =
+    emojis[Math.floor(Math.random()*emojis.length)];
+
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15+Math.random()*20)+"px";
+  heart.style.animationDuration = (4+Math.random()*5)+"s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 9000);
+}
+
+setInterval(createHeart, 350);
+
+// Surprise button
+function showLove() {
+  const box = document.getElementById("surprise");
+
+  box.style.display = "block";
+
+  // Heart explosion
+  for(let i=0; i<25; i++) {
+    setTimeout(createHeart, i*60);
+  }
+}
+
+</script>
+
+</body>
+</html>
